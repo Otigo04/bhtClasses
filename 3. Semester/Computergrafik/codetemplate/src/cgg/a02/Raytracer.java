@@ -27,14 +27,14 @@ public class Raytracer implements tools.ISampler {
         if (closestHit != null) {
             return shade(closestHit);
         }
-        return Color.gray;
-    }
+        return Color.black;
+    } // Hilfe von GPT war dabei
 
 
     private static Color shade(Hit hit) {
         Vec3 lightDir = normalize(vec3(1,1,0.5));
-        Color ambient = multiply(0.1, hit.color());
-        Color diffuse = multiply(0.9 * Math.max(0, dot(lightDir, hit.normal())), hit.color());
+        Color ambient = multiply(0.02, hit.color());
+        Color diffuse = multiply(0.8 * Math.max(0, dot(lightDir, hit.normal())), hit.color());
         return add(ambient, diffuse);
     }
 }

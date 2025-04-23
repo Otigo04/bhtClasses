@@ -1,8 +1,8 @@
 package cgg.a02;
 
-import tools.Vec3;
-import tools.Vec2;
 import static tools.Functions.*;
+import tools.Vec2;
+import tools.Vec3;
 
 public class Camera {
     private final double alpha;
@@ -25,6 +25,5 @@ public class Camera {
         double ndcY = 1 - 2 * p.y() / height;
         Vec3 dir = normalize(vec3(ndcX, ndcY, -screenDist));
         return new Ray(vec3(0,0,0), dir);
-        // Hilfe von ChatGPT war hier dabei
     }
 }
